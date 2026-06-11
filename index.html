@@ -1,0 +1,1521 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Studios — Math, SAT &amp; CS Tutoring in Richmond, VA</title>
+    <meta
+      name="description"
+      content="One-on-one tutoring in Richmond, VA — SAT Math, high school math, college calculus, linear algebra, and intro CS. First session just $30."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cs-studios.org/" />
+    <meta
+      property="og:title"
+      content="CS Studios — Math, SAT &amp; CS Tutoring in Richmond, VA"
+    />
+    <meta
+      property="og:description"
+      content="One-on-one tutoring in Richmond, VA — SAT Math, high school math, college calculus, linear algebra, and intro CS. First session just $30."
+    />
+    <meta property="og:image" content="https://cs-studios.org/og-image.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="CS Studios — Math, SAT &amp; CS Tutoring in Richmond, VA"
+    />
+    <meta
+      name="twitter:description"
+      content="One-on-one tutoring in Richmond, VA — SAT Math, high school math, college calculus, linear algebra, and intro CS. First session just $30."
+    />
+    <meta name="twitter:image" content="https://cs-studios.org/og-image.png" />
+
+    <!-- Favicon: inline SVG monogram -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f172a'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' font-size='13' fill='%2338bdf8'%3ECS%3C/text%3E%3C/svg%3E"
+    />
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ===== RESET & BASE ===== */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --ink: #0f172a;
+        --ink-soft: #1e293b;
+        --ink-muted: #334155;
+        --slate: #64748b;
+        --border: #e2e8f0;
+        --surface: #f8fafc;
+        --white: #ffffff;
+        --accent: #38bdf8;
+        --accent-dark: #0ea5e9;
+        --accent-pale: #e0f2fe;
+        --success: #10b981;
+        --error: #ef4444;
+        --font: "Inter", system-ui, -apple-system, sans-serif;
+        --radius: 10px;
+        --transition: 180ms ease;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font);
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--ink);
+        background: var(--white);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      a {
+        color: inherit;
+      }
+
+      /* ===== LAYOUT ===== */
+      .container {
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      /* ===== NAV ===== */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(15, 23, 42, 0.96);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        height: 56px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .wordmark {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--white);
+        letter-spacing: -0.01em;
+      }
+
+      .wordmark-icon {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+      }
+
+      .nav-cta {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--accent);
+        text-decoration: none;
+        padding: 6px 14px;
+        border: 1.5px solid var(--accent);
+        border-radius: 6px;
+        transition:
+          background var(--transition),
+          color var(--transition);
+      }
+      .nav-cta:hover {
+        background: var(--accent);
+        color: var(--ink);
+      }
+
+      /* ===== HERO ===== */
+      #hero {
+        background: var(--ink);
+        color: var(--white);
+        padding: 80px 0 72px;
+      }
+
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 20px;
+      }
+
+      .hero-eyebrow::before {
+        content: "";
+        display: inline-block;
+        width: 20px;
+        height: 2px;
+        background: var(--accent);
+        border-radius: 2px;
+      }
+
+      #hero h1 {
+        font-size: clamp(1.75rem, 6vw, 2.6rem);
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: -0.025em;
+        margin-bottom: 20px;
+        color: var(--white);
+      }
+
+      #hero h1 em {
+        font-style: normal;
+        color: var(--accent);
+      }
+
+      .hero-subhead {
+        font-size: clamp(1rem, 3vw, 1.125rem);
+        color: #94a3b8;
+        line-height: 1.65;
+        max-width: 560px;
+        margin-bottom: 32px;
+      }
+
+      .offer-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(56, 189, 248, 0.12);
+        border: 1.5px solid rgba(56, 189, 248, 0.35);
+        color: var(--accent);
+        font-size: 0.9rem;
+        font-weight: 600;
+        padding: 8px 16px;
+        border-radius: 999px;
+        margin-bottom: 28px;
+      }
+
+      .offer-pill svg {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+      }
+
+      .btn-primary {
+        display: inline-block;
+        background: var(--accent);
+        color: var(--ink);
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 14px 28px;
+        border-radius: var(--radius);
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition:
+          background var(--transition),
+          transform var(--transition),
+          box-shadow var(--transition);
+      }
+
+      .btn-primary:hover {
+        background: var(--accent-dark);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 20px rgba(56, 189, 248, 0.35);
+      }
+
+      .btn-primary:active {
+        transform: translateY(0);
+      }
+
+      /* ===== DIVIDER ===== */
+      .section-divider {
+        border: none;
+        height: 1px;
+        background: var(--border);
+      }
+
+      /* ===== SECTION LABELS ===== */
+      .section-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent-dark);
+        margin-bottom: 10px;
+      }
+
+      .section-title {
+        font-size: clamp(1.4rem, 4vw, 1.85rem);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+        color: var(--ink);
+        margin-bottom: 20px;
+      }
+
+      /* ===== ABOUT ===== */
+      #about {
+        background: var(--white);
+      }
+
+      .about-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 36px 32px;
+      }
+
+      .about-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 24px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        background: var(--accent-pale);
+        color: #0369a1;
+        padding: 4px 10px;
+        border-radius: 999px;
+      }
+
+      .badge svg {
+        width: 12px;
+        height: 12px;
+      }
+
+      .about-body {
+        font-size: 1rem;
+        line-height: 1.75;
+        color: var(--ink-muted);
+      }
+
+      /* ===== SUBJECTS ===== */
+      #subjects {
+        background: var(--surface);
+      }
+
+      .subjects-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      @media (min-width: 540px) {
+        .subjects-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .subject-group {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px;
+      }
+
+      .subject-group-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--slate);
+        margin-bottom: 14px;
+      }
+
+      .subject-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .subject-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--ink-muted);
+      }
+
+      .subject-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        flex-shrink: 0;
+      }
+
+      .other-callout {
+        margin-top: 20px;
+        padding: 16px 20px;
+        background: var(--white);
+        border: 1.5px dashed var(--border);
+        border-radius: var(--radius);
+        font-size: 0.9rem;
+        color: var(--slate);
+      }
+
+      .other-callout strong {
+        color: var(--ink-muted);
+      }
+
+      .other-callout a {
+        color: var(--accent-dark);
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .other-callout a:hover {
+        text-decoration: underline;
+      }
+
+      /* ===== PRICING ===== */
+      #pricing {
+        background: var(--white);
+      }
+
+      .pricing-cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      @media (min-width: 480px) {
+        .pricing-cards {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .pricing-card {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 28px 24px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pricing-card--featured {
+        border-color: var(--accent);
+        background: var(--ink);
+        color: var(--white);
+      }
+
+      .pricing-card--featured::before {
+        content: "INTRO OFFER";
+        position: absolute;
+        top: 22px;
+        right: -18px;
+        background: var(--accent);
+        color: var(--ink);
+        font-size: 0.65rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        padding: 3px 28px;
+        transform: rotate(45deg);
+        transform-origin: center;
+      }
+
+      .pricing-badge {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+
+      .pricing-card--featured .pricing-badge {
+        color: var(--accent);
+      }
+      .pricing-card--standard .pricing-badge {
+        color: var(--slate);
+      }
+
+      .pricing-amount {
+        font-size: 2.8rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+
+      .pricing-card--featured .pricing-amount {
+        color: var(--white);
+      }
+      .pricing-card--standard .pricing-amount {
+        color: var(--ink);
+      }
+
+      .pricing-per {
+        font-size: 0.85rem;
+        font-weight: 500;
+        margin-bottom: 14px;
+      }
+
+      .pricing-card--featured .pricing-per {
+        color: #94a3b8;
+      }
+      .pricing-card--standard .pricing-per {
+        color: var(--slate);
+      }
+
+      .pricing-desc {
+        font-size: 0.9rem;
+        line-height: 1.55;
+      }
+
+      .pricing-card--featured .pricing-desc {
+        color: #cbd5e1;
+      }
+      .pricing-card--standard .pricing-desc {
+        color: var(--slate);
+      }
+
+      .pricing-note {
+        margin-top: 20px;
+        font-size: 0.85rem;
+        color: var(--slate);
+      }
+
+      /* ===== FORM ===== */
+      #contact {
+        background: var(--surface);
+      }
+
+      .form-wrap {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 36px 28px;
+      }
+
+      .form-intro {
+        font-size: 0.95rem;
+        color: var(--slate);
+        margin-bottom: 28px;
+        line-height: 1.6;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      @media (min-width: 480px) {
+        .form-row--2 {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      label {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--ink-muted);
+        letter-spacing: 0.01em;
+      }
+
+      label .req {
+        color: var(--error);
+        margin-left: 2px;
+      }
+
+      input,
+      select,
+      textarea {
+        font-family: var(--font);
+        font-size: 0.95rem;
+        color: var(--ink);
+        background: var(--white);
+        border: 1.5px solid var(--border);
+        border-radius: var(--radius);
+        padding: 11px 14px;
+        width: 100%;
+        transition:
+          border-color var(--transition),
+          box-shadow var(--transition);
+        outline: none;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+
+      select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748b' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+        padding-right: 40px;
+        cursor: pointer;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: var(--accent-dark);
+        box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+      }
+
+      input.error,
+      select.error,
+      textarea.error {
+        border-color: var(--error);
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+      }
+
+      .field-error {
+        font-size: 0.78rem;
+        font-weight: 500;
+        color: var(--error);
+        min-height: 16px;
+        display: none;
+      }
+
+      .field-error.visible {
+        display: block;
+      }
+
+      .form-group-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--slate);
+        margin: 24px 0 12px;
+      }
+
+      .radio-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .radio-option {
+        display: flex;
+        align-items: center;
+      }
+
+      .radio-option input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+      }
+
+      .radio-option label {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border: 1.5px solid var(--border);
+        border-radius: 999px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--ink-muted);
+        cursor: pointer;
+        letter-spacing: 0;
+        transition: border-color 0.15s, background 0.15s, color 0.15s;
+        user-select: none;
+      }
+
+      .radio-option label::before {
+        content: "";
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        border: 1.5px solid var(--border);
+        flex-shrink: 0;
+        transition: border-color 0.15s, background 0.15s;
+      }
+
+      .radio-option input[type="radio"]:checked + label {
+        border-color: var(--accent-dark);
+        background: var(--accent-pale);
+        color: var(--ink);
+      }
+
+      .radio-option input[type="radio"]:checked + label::before {
+        border-color: var(--accent-dark);
+        background: var(--accent-dark);
+        box-shadow: inset 0 0 0 3px var(--accent-pale);
+      }
+
+      .radio-option label:hover {
+        border-color: var(--accent-dark);
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      .form-submit-row {
+        margin-top: 28px;
+      }
+
+      .btn-submit {
+        width: 100%;
+        background: var(--ink);
+        color: var(--white);
+        font-family: var(--font);
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 15px;
+        border: none;
+        border-radius: var(--radius);
+        cursor: pointer;
+        transition:
+          background var(--transition),
+          transform var(--transition);
+      }
+
+      .btn-submit:hover {
+        background: var(--ink-soft);
+      }
+      .btn-submit:active {
+        transform: scale(0.99);
+      }
+      .btn-submit:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      .form-success {
+        display: none;
+        text-align: center;
+        padding: 40px 24px;
+      }
+
+      .form-success.visible {
+        display: block;
+      }
+
+      .success-icon {
+        width: 52px;
+        height: 52px;
+        background: #dcfce7;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 16px;
+      }
+
+      .success-icon svg {
+        width: 26px;
+        height: 26px;
+        color: var(--success);
+      }
+
+      .success-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 8px;
+      }
+
+      .success-body {
+        font-size: 0.95rem;
+        color: var(--slate);
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: var(--ink);
+        color: #64748b;
+        padding: 36px 0;
+        text-align: center;
+        font-size: 0.85rem;
+      }
+
+      .footer-wordmark {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 6px;
+      }
+
+      .footer-location {
+        margin-bottom: 14px;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .footer-links a {
+        color: #475569;
+        text-decoration: none;
+        transition: color var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: var(--accent);
+      }
+
+      /* Scroll offset for sticky nav */
+      #hero,
+      #about,
+      #subjects,
+      #pricing,
+      #contact {
+        scroll-margin-top: 56px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav aria-label="Site navigation">
+      <div class="nav-inner">
+        <a href="#hero" class="wordmark" aria-label="CS Studios home">
+          <svg
+            class="wordmark-icon"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <rect width="32" height="32" rx="6" fill="#0f172a" />
+            <rect
+              width="32"
+              height="32"
+              rx="6"
+              fill="url(#wg)"
+              opacity="0.15"
+            />
+            <text
+              x="50%"
+              y="54%"
+              dominant-baseline="middle"
+              text-anchor="middle"
+              font-family="system-ui,sans-serif"
+              font-weight="800"
+              font-size="13"
+              fill="#38bdf8"
+            >
+              CS
+            </text>
+            <defs>
+              <linearGradient
+                id="wg"
+                x1="0"
+                y1="0"
+                x2="32"
+                y2="32"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#38bdf8" />
+                <stop offset="1" stop-color="#0ea5e9" />
+              </linearGradient>
+            </defs>
+          </svg>
+          CS Studios
+        </a>
+        <a href="#contact" class="nav-cta">Book a session</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero-eyebrow">Richmond, VA Area</div>
+
+        <h1 id="hero-heading">
+          Math, SAT &amp; CS Tutoring —<br />From a <em>Working Engineer</em>
+        </h1>
+
+        <p class="hero-subhead">
+          One-on-one tutoring in the Richmond, VA area, covering SAT Math, high
+          school math, college calculus, linear algebra, and intro computer
+          science. Clear, practical help from someone who uses this material
+          every day.
+        </p>
+
+        <div class="offer-pill" role="note">
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path
+              d="M1 1h6l7 7-6 6-7-7V1zm3.5 3.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"
+            />
+          </svg>
+          First session just $30 — half off the standard $60/hour rate.
+        </div>
+
+        <br />
+        <a href="#contact" class="btn-primary">Book your first session</a>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <p class="section-label">About the tutor</p>
+        <h2 class="section-title" id="about-heading">
+          Who you'll be working with
+        </h2>
+
+        <div class="about-card">
+          <div class="about-meta" aria-label="Credentials">
+            <span class="badge">
+              <svg viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M6 0L7.5 4.5H12L8.5 7L10 12L6 9L2 12L3.5 7L0 4.5H4.5Z"
+                />
+              </svg>
+              Software Engineer
+            </span>
+            <span class="badge">
+              <svg viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+                <path d="M1 9h10V4L6 1 1 4v5zm2-2V6h2v1H3zm4 0V6h2v1H7z" />
+              </svg>
+              B.S. Computer Science, Univ. of Maryland
+            </span>
+            <span class="badge">
+              <svg viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M6 0a6 6 0 1 0 0 12A6 6 0 0 0 6 0zm0 2v4l3 1.5-.75 1.3L5 7V2h1z"
+                />
+              </svg>
+              Minor in Mathematics
+            </span>
+          </div>
+
+          <p class="about-body">
+            I'm Charlie, the tutor behind CS Studios. I'm a software engineer at
+            a leading financial-technology company and a recent University of
+            Maryland graduate with a B.S. in Computer Science and a minor in
+            Mathematics. I've tutored math for years, and I bring something most
+            tutors can't: I use this material every day in a real engineering
+            role, so I teach it the way it actually shows up, whether on the
+            SAT, in your classes, or in the real world. Whether you're a high
+            schooler getting ready for the SAT or a college student wrestling
+            with calculus or data structures, I'll meet you where you are and
+            help it click. I work one-on-one with students across the Richmond,
+            Virginia area in person.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- SUBJECTS -->
+    <section id="subjects" aria-labelledby="subjects-heading">
+      <div class="container">
+        <p class="section-label">What I teach</p>
+        <h2 class="section-title" id="subjects-heading">Find your subject</h2>
+
+        <div class="subjects-grid">
+          <div class="subject-group">
+            <p class="subject-group-label">Test prep &amp; high school</p>
+            <ul class="subject-list" role="list">
+              <li>
+                <span class="subject-dot" aria-hidden="true"></span>SAT Math
+              </li>
+              <li>
+                <span class="subject-dot" aria-hidden="true"></span>High School
+                Math (all levels)
+              </li>
+            </ul>
+          </div>
+
+          <div class="subject-group">
+            <p class="subject-group-label">College math &amp; CS</p>
+            <ul class="subject-list" role="list">
+              <li>
+                <span class="subject-dot" aria-hidden="true"></span>Calculus 1
+              </li>
+              <li>
+                <span class="subject-dot" aria-hidden="true"></span>Calculus 2
+              </li>
+              <li>
+                <span class="subject-dot" aria-hidden="true"></span>Linear
+                Algebra
+              </li>
+              <li>
+                <span class="subject-dot" aria-hidden="true"></span>Beginner
+                Programming
+              </li>
+              <li>
+                <span class="subject-dot" aria-hidden="true"></span>Data
+                Structures &amp; Algorithms
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="other-callout" role="note">
+          <strong>Don't see your course?</strong> Ask anyway since I cover a
+          range of math and CS topics. <a href="#contact">Send a message</a> and
+          I'll let you know if I can help.
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- PRICING -->
+    <section id="pricing" aria-labelledby="pricing-heading">
+      <div class="container">
+        <p class="section-label">Pricing</p>
+        <h2 class="section-title" id="pricing-heading">Simple, honest rates</h2>
+
+        <div class="pricing-cards">
+          <div
+            class="pricing-card pricing-card--featured"
+            aria-label="Intro offer: first session $30"
+          >
+            <p class="pricing-badge">First session</p>
+            <p class="pricing-amount">$30</p>
+            <p class="pricing-per">one hour — first session only</p>
+            <p class="pricing-desc">
+              Try your first session for $30 — half off the standard $60/hour
+              rate. No commitment, no pressure.
+            </p>
+          </div>
+
+          <div
+            class="pricing-card pricing-card--standard"
+            aria-label="Standard rate: $60 per hour"
+          >
+            <p class="pricing-badge">Standard rate</p>
+            <p class="pricing-amount">$60</p>
+            <p class="pricing-per">per hour</p>
+            <p class="pricing-desc">
+              One-on-one, in-person sessions in the Richmond, VA area. Rate
+              applies after the intro session.
+            </p>
+          </div>
+        </div>
+
+        <p class="pricing-note">
+          Sessions are scheduled directly. Reach out below to get started.
+        </p>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- CONTACT FORM -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <p class="section-label">Get in touch</p>
+        <h2 class="section-title" id="contact-heading">
+          Book your first session
+        </h2>
+
+        <div class="form-wrap">
+          <p class="form-intro">
+            Fill in the details below and I'll follow up within 24 hours to
+            schedule your first session.
+          </p>
+
+          <!--
+          FORM ENDPOINT — Web3Forms
+          ─────────────────────────────────────────────────────────
+          1. Go to https://web3forms.com/ and sign up for free.
+          2. You'll receive an Access Key — paste it below in place of YOUR_ACCESS_KEY_HERE.
+          3. That's it. No backend, no server needed.
+
+          ALTERNATIVE — Formspree:
+          • Change the form action to: https://formspree.io/f/YOUR_FORM_ID
+          • Remove the hidden access_key input below.
+          ─────────────────────────────────────────────────────────
+        -->
+          <form
+            id="contact-form"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            novalidate
+          >
+            <!-- ← REPLACE THIS VALUE WITH YOUR WEB3FORMS ACCESS KEY -->
+            <input
+              type="hidden"
+              name="access_key"
+              value="25e4ada4-4690-43d9-84f0-1f1e622781a3"
+            />
+            <input type="hidden" name="redirect" value="false" />
+            <!-- Honeypot anti-spam field -->
+            <input
+              type="checkbox"
+              name="botcheck"
+              style="display: none"
+              tabindex="-1"
+              autocomplete="off"
+            />
+
+            <!-- Name -->
+            <div class="form-row form-row--2">
+              <div class="field">
+                <label for="first_name"
+                  >First name
+                  <span class="req" aria-hidden="true">*</span></label
+                >
+                <input
+                  type="text"
+                  id="first_name"
+                  name="first_name"
+                  autocomplete="given-name"
+                  required
+                  aria-required="true"
+                  aria-describedby="first_name_error"
+                />
+                <span class="field-error" id="first_name_error" role="alert"
+                  >Please enter your first name.</span
+                >
+              </div>
+              <div class="field">
+                <label for="last_name"
+                  >Last name
+                  <span class="req" aria-hidden="true">*</span></label
+                >
+                <input
+                  type="text"
+                  id="last_name"
+                  name="last_name"
+                  autocomplete="family-name"
+                  required
+                  aria-required="true"
+                  aria-describedby="last_name_error"
+                />
+                <span class="field-error" id="last_name_error" role="alert"
+                  >Please enter your last name.</span
+                >
+              </div>
+            </div>
+
+            <!-- Contact — at least one required -->
+            <p class="form-group-label">Contact info — provide at least one</p>
+            <div class="form-row form-row--2">
+              <div class="field">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  autocomplete="email"
+                  inputmode="email"
+                  aria-describedby="email_error"
+                />
+                <span class="field-error" id="email_error" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  autocomplete="tel"
+                  inputmode="tel"
+                  aria-describedby="phone_error"
+                />
+                <span class="field-error" id="phone_error" role="alert"></span>
+              </div>
+            </div>
+            <span class="field-error" id="contact_error" role="alert"></span>
+
+            <!-- Course -->
+            <p class="form-group-label">Course</p>
+            <div class="field">
+              <label for="course"
+                >Subject <span class="req" aria-hidden="true">*</span></label
+              >
+              <select
+                id="course"
+                name="course"
+                required
+                aria-required="true"
+                aria-describedby="course_error"
+              >
+                <option value="">Select a subject…</option>
+                <option value="SAT Math">SAT Math</option>
+                <option value="High School Math">High School Math</option>
+                <option value="Calculus 1">Calculus 1</option>
+                <option value="Calculus 2">Calculus 2</option>
+                <option value="Linear Algebra">Linear Algebra</option>
+                <option value="Beginner Programming">
+                  Beginner Programming
+                </option>
+                <option value="Data Structures &amp; Algorithms">
+                  Data Structures &amp; Algorithms
+                </option>
+                <option value="Other">Other</option>
+              </select>
+              <span class="field-error" id="course_error" role="alert"
+                >Please select a subject.</span
+              >
+            </div>
+
+            <div class="field hidden" id="other_course_wrap">
+              <label for="other_course"
+                >Course name
+                <span class="req" aria-hidden="true">*</span></label
+              >
+              <input
+                type="text"
+                id="other_course"
+                name="other_course"
+                placeholder="What course do you need help with?"
+                aria-describedby="other_course_error"
+              />
+              <span class="field-error" id="other_course_error" role="alert"
+                >Please enter your course name.</span
+              >
+            </div>
+
+            <!-- Level -->
+            <p class="form-group-label" id="level_label">
+              Current level in school
+            </p>
+            <div
+              role="radiogroup"
+              aria-labelledby="level_label"
+              aria-describedby="level_error"
+            >
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="level_hs"
+                    name="level"
+                    value="High School"
+                  />
+                  <label for="level_hs">High School</label>
+                </div>
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="level_undergrad"
+                    name="level"
+                    value="Undergrad"
+                  />
+                  <label for="level_undergrad">Undergrad</label>
+                </div>
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="level_other"
+                    name="level"
+                    value="Other"
+                  />
+                  <label for="level_other">Other</label>
+                </div>
+              </div>
+              <span class="field-error" id="level_error" role="alert"
+                >Please select your current level.</span
+              >
+            </div>
+
+            <div
+              class="field hidden"
+              id="other_level_wrap"
+              style="margin-top: 12px"
+            >
+              <label for="other_level">
+                Describe your level
+                <span style="color: var(--slate); font-weight: 400"
+                  >(optional)</span
+                >
+              </label>
+              <input
+                type="text"
+                id="other_level"
+                name="other_level"
+                placeholder="e.g. working professional, community college…"
+              />
+            </div>
+
+            <div class="form-submit-row">
+              <button type="submit" class="btn-submit" id="submit-btn">
+                Send my request
+              </button>
+            </div>
+          </form>
+
+          <!-- Success state -->
+          <div
+            class="form-success"
+            id="form-success"
+            aria-live="polite"
+            role="status"
+          >
+            <div class="success-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <p class="success-title">Thanks — I'll be in touch soon!</p>
+            <p class="success-body">
+              I'll follow up within 24 hours to schedule your first session.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <p class="footer-wordmark">CS Studios</p>
+        <p class="footer-location">Richmond, Virginia</p>
+        <div class="footer-links">
+          <a href="#hero">Home</a>
+          <a href="#about">About</a>
+          <a href="#subjects">Subjects</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.78rem; color: #334155">
+          &copy; <span id="footer-year"></span> CS Studios. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("footer-year").textContent =
+        new Date().getFullYear();
+
+      var form = document.getElementById("contact-form");
+      var successEl = document.getElementById("form-success");
+      var submitBtn = document.getElementById("submit-btn");
+
+      // ── Course "Other" reveal ──
+      var courseSelect = document.getElementById("course");
+      var otherCourseWrap = document.getElementById("other_course_wrap");
+      var otherCourseInput = document.getElementById("other_course");
+
+      courseSelect.addEventListener("change", function () {
+        if (this.value === "Other") {
+          otherCourseWrap.classList.remove("hidden");
+          otherCourseInput.required = true;
+        } else {
+          otherCourseWrap.classList.add("hidden");
+          otherCourseInput.required = false;
+          otherCourseInput.value = "";
+          clearError("other_course");
+        }
+      });
+
+      // ── Level "Other" reveal ──
+      document
+        .querySelectorAll('input[name="level"]')
+        .forEach(function (radio) {
+          radio.addEventListener("change", function () {
+            var wrap = document.getElementById("other_level_wrap");
+            if (this.value === "Other") {
+              wrap.classList.remove("hidden");
+            } else {
+              wrap.classList.add("hidden");
+              document.getElementById("other_level").value = "";
+            }
+            clearError("level");
+          });
+        });
+
+      // ── Error helpers ──
+      function showError(id, msg) {
+        var errEl = document.getElementById(id + "_error");
+        if (errEl) {
+          errEl.textContent = msg;
+          errEl.classList.add("visible");
+        }
+        var inp = document.getElementById(id);
+        if (inp) inp.classList.add("error");
+      }
+
+      function clearError(id) {
+        var errEl = document.getElementById(id + "_error");
+        if (errEl) {
+          errEl.textContent = "";
+          errEl.classList.remove("visible");
+        }
+        var inp = document.getElementById(id);
+        if (inp) inp.classList.remove("error");
+      }
+
+      function showContactError(msg) {
+        var el = document.getElementById("contact_error");
+        if (el) {
+          el.textContent = msg;
+          el.classList.add("visible");
+        }
+      }
+
+      function clearContactError() {
+        var el = document.getElementById("contact_error");
+        if (el) {
+          el.textContent = "";
+          el.classList.remove("visible");
+        }
+      }
+
+      function isValidEmail(v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      }
+
+      // ── Validation ──
+      function validate() {
+        var ok = true;
+
+        var fn = document.getElementById("first_name").value.trim();
+        if (!fn) {
+          showError("first_name", "Please enter your first name.");
+          ok = false;
+        } else clearError("first_name");
+
+        var ln = document.getElementById("last_name").value.trim();
+        if (!ln) {
+          showError("last_name", "Please enter your last name.");
+          ok = false;
+        } else clearError("last_name");
+
+        var email = document.getElementById("email").value.trim();
+        var phone = document.getElementById("phone").value.trim();
+
+        clearError("email");
+        clearError("phone");
+        clearContactError();
+
+        if (!email && !phone) {
+          showContactError(
+            "Please provide at least one contact method — email or phone.",
+          );
+          document.getElementById("email").classList.add("error");
+          document.getElementById("phone").classList.add("error");
+          ok = false;
+        } else {
+          if (email && !isValidEmail(email)) {
+            showError("email", "Please enter a valid email address.");
+            ok = false;
+          }
+        }
+
+        var course = courseSelect.value;
+        if (!course) {
+          showError("course", "Please select a subject.");
+          ok = false;
+        } else {
+          clearError("course");
+          if (course === "Other") {
+            var oc = otherCourseInput.value.trim();
+            if (!oc) {
+              showError("other_course", "Please enter your course name.");
+              ok = false;
+            } else clearError("other_course");
+          }
+        }
+
+        var lvl = document.querySelector('input[name="level"]:checked');
+        if (!lvl) {
+          showError("level", "Please select your current level.");
+          ok = false;
+        } else clearError("level");
+
+        return ok;
+      }
+
+      // ── Submission ──
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!validate()) return;
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending…";
+
+        var data = new FormData(form);
+        fetch(form.action, {
+          method: "POST",
+          body: data,
+          headers: { Accept: "application/json" },
+        })
+          .then(function (res) {
+            if (res.ok) {
+              form.classList.add("hidden");
+              successEl.classList.add("visible");
+              successEl.focus();
+            } else {
+              throw new Error("server");
+            }
+          })
+          .catch(function () {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Send my request";
+            showContactError(
+              "Something went wrong — please try again or email me directly.",
+            );
+          });
+      });
+
+      // ── Live error clearing ──
+      ["first_name", "last_name", "email", "phone", "other_course"].forEach(
+        function (id) {
+          var el = document.getElementById(id);
+          if (!el) return;
+          el.addEventListener("input", function () {
+            clearError(id);
+            if (id === "email" || id === "phone") clearContactError();
+          });
+        },
+      );
+      courseSelect.addEventListener("change", function () {
+        clearError("course");
+      });
+    </script>
+  </body>
+</html>
